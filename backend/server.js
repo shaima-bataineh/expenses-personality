@@ -6,17 +6,16 @@ const cors = require("cors");
 
 const app = express();
 
-const pool = new Pool({
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-
+const pool = new Pool({  // create connection to database
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: true
+    }
 });
-app.use(cors());
+app.use(cors()); // conect frontend with backend without cors error
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
+// chnge port to 4000
 
 app.get("/api/expenses", async(req, res) => {
     const result = await pool.query(
