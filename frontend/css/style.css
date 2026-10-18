@@ -91,7 +91,16 @@ main section {
     background-color: #212529;
     color: #ffffff;
 }
-
+.darkmode-btn {
+    background-color: #fbf8f8;
+    color: #0b0b0b;
+    border-color: #ced4da;
+}
+.darkmode-btn:hover {
+    background-color: #000000;
+    color: #f7f8f9;
+    border-color: #ced4da;
+}
 .dark-mode .navbar-brand,
 .dark-mode .nav-link,
 .dark-mode .nav-link.active {
@@ -106,7 +115,7 @@ main section {
 .dark-mode .form-select {
     background-color: #343a40;
     color: white;
-    border-color: #6c757d;
+    border-color: #4c5256;
 
 }
 
@@ -128,15 +137,16 @@ main section {
     background-color: #343a40;
     color: white;
 }
-.dark-mode .darkmode-btn{
-    color: white;
-    border-color:#6c757d;
+/* Dark Mode */
+.dark-mode .darkmode-btn {
+    background-color: #f9f6f6;
+    color: #000000;
+    border-color: #000000;
 }
-
-.dark-mode .darkmode-btn:hover{
-    background-color: white;
-    color: #212529;
-    border-color: white;
+.dark-mode .darkmode-btn:hover {
+    background-color: #c4c8cd;
+    color: #ffffff;
+    border-color: #4c5256;
 }
 .dark-mode .btn-close{
     filter: invert(1); /* converts the close button to white */

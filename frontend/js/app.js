@@ -1,3 +1,5 @@
+const API_BASE_URL = "http://localhost:3000";
+
 const expenseForm = document.getElementById("expenseForm");
 let allExpenses =[];
 const titleInput = document.getElementById("title");
@@ -80,6 +82,7 @@ function updateChart(expenses){
 
 // alert message
 const alertContainer = document.getElementById("alertContainer");
+const formAlert = document.getElementById("formAlert");
 
 function showAlert(message, type){
     const alert = document.createElement("div");
@@ -130,7 +133,7 @@ expenseForm.addEventListener("submit", async function (event) {
 
     // post request
     try {
-        const response = await fetch("http://localhost:3000/api/expenses", {
+        const response = await fetch(`${API_BASE_URL}/api/expenses`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json" // tell server that data is a JSON
@@ -251,7 +254,7 @@ editExpenseForm.addEventListener("submit",async function(event) {
     //send to api
 
     try{
-        const response = await fetch(`http://localhost:3000/api/expenses/${editingExpenseId}`,
+        const response = await fetch(`${API_BASE_URL}/api/expenses/${editingExpenseId}`,
             {
                 method: "PUT",
                 headers:{
@@ -333,7 +336,7 @@ expenseTableBody.innerHTML = "";
 
         removeButton.addEventListener("click",async function() {
             try{
-                const response = await fetch(`http://localhost:3000/api/expenses/${expense.id}`,
+                const response = await fetch(`${API_BASE_URL}/api/expenses/${expense.id}`,
                     {
                         method: "DELETE"
                     }
@@ -369,7 +372,7 @@ async function loadExpenses() {
  try{
     loadingSpinner.classList.remove("d-none");
 
-    const response = await fetch("http://localhost:3000/api/expenses",{
+    const response = await fetch(`${API_BASE_URL}/api/expenses`,{
         cache: "no-store" // prevent cache data
     });
 
